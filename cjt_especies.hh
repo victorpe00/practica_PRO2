@@ -10,6 +10,7 @@
 
 #ifndef NO_DIAGRAM
 #include <map>
+#include <vector>
 using namespace std;
 #endif
 
@@ -77,6 +78,9 @@ public:
     */
     double distancia_esp(const string& id1, const string& id2) const;
 
+    void ids_clusters(vector<string>& ids);
+
+    void consultar_taula(taula_distancies& taula);
 
     //MODIFICADORES
     

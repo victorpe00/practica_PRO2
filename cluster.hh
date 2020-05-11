@@ -19,7 +19,7 @@ class cluster{
 
 private:
 
-    BinTree<string> clust_tree; 
+    BinTree<pair<string,double>> clust_tree; 
 
 public:
     //CONSTRUCTORES
@@ -30,11 +30,16 @@ public:
         \post El resultat es un cluster sense especies.
     */
     cluster();
+    
+    /** @brief Constructora copiadora.
+        \pre <em>Cert.</em>
+        \post El reesultat es un cluster amb un clust_tree = tree
+    */
+    cluster(const BinTree<pair<string,double>>& tree);
 
     /** @brief Destructora,esborra automaticament els objectes locals en sortir d'un ambit de visibilitat.*/
     ~cluster();
     
-    //CONSTRUCTORES
 
     /** @brief Metode de cració d'un cluster.
 
@@ -43,6 +48,11 @@ public:
     */
     void consultar_clust_dist() const;
 
+    /** @brief Metode que retorna cert si el parametre implicit es una fulla
+     *  \pre <em>Parametre implicit
+    */
+    bool clust_unic();
+
     //LECTURA I ESCRIPTURA
 
     /** @brief Metode de cració d'un cluster.
@@ -50,14 +60,20 @@ public:
        \pre <em>Cert.</em>
        \post Crea un cluster.
     */
-    void inicialitzar_clust(string& id) const;
+    void inici_clust(const string& id);
 
-    /** @brief Metode d'escriptura d'un cluster.
+    /** @brief Metode d'escriptura d'un cluster no unic.
 
        \pre <em>Parametre implicit no buit.</em>
        \post Imprimeix pel canal estandard de sortida el parametre implicit.
     */
-    void escriure_clust() const;
+    void escriure_clust();
     
+    /** @brief Metode d'escriptura d'un cluster unic.
+
+       \pre <em>Parametre implicit no buit.</em>
+       \post Imprimeix pel canal estandard de sortida el parametre implicit.
+    
+    void escriure_clust_unic();*/
 };
 #endif

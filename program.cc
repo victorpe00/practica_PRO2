@@ -87,23 +87,30 @@ int main(){
             c_esp.imprime_t_cesp();
             cout << endl;
         }
+
+
         else if (s == "inicializa_clusters"){ //Inicialitza el conjunt de clusters
-            if (not c_esp.buit()) c_clust.inicialitza_clusters(c_esp);
-            else cout << "El parametre implicit es un conjunt buit." << endl;
+            cout << "# inicializa_clusters" << endl;
+            c_clust.inicialitza_clusters(c_esp);
+            cout << endl;
         }
         else if (s == "ejecuta_paso_wpgma"){ //Executa el pas wpgma 
-            if (not c_clust.clust_buit()) c_clust.ejecuta_paso_wpgma();
+            if (not c_clust.cjt_clust_buit()) c_clust.ejecuta_paso_wpgma();
             else cout << "El parametre implicit es un conjunt buit." << endl;
+            cout << endl;
         }
         else if (s == "imprime_cluster"){ // Imprimeix l'estructura arborescent del cluster amb identificador = id del parametre implicit.
             string id;
             cin >> id;
-            if (c_clust.existe_clsuter(id)) c_clust.imprime_cluster(id); 
-            else cout << "NO existeix una cluster amb id " << id << " al parametre implicit." << endl;
+            cout << "# imprime_cluster " << id << endl; 
+            if (not c_clust.cjt_clust_buit() and c_clust.existe_cluster(id)) c_clust.imprime_cluster(id);
+            else cout << "ERROR: El cluster " << id << " no existe." << endl;
+            cout << endl;
         }
         else if (s == "imprime_arbol_filogenetico"){ //Imprimeix l'arbre filogenetic del parametre implicit.
-            if (not c_clust.clust_buit()) c_clust.imprime_arbol_filogenetico();
+            if (not c_clust.cjt_clust_buit()) c_clust.imprime_arbol_filogenetico();
             else cout << "parametre implicit buit" << endl;
+            cout << endl;
         }
         cin >> s;
     }

@@ -33,6 +33,14 @@ double cjt_especies::distancia_esp(const string& id1, const string& id2) const{
     return especie::dist_esp((*it).second,(*it2).second);
 }
 
+void cjt_especies::ids_clusters(vector<string>& ids){
+    map<string,especie>::iterator it = cjt_esp.begin();
+    while(it != cjt_esp.end()){
+        ids.push_back((*it).first);
+        ++it;
+    }
+}
+
 /*void cjt_especies::crea_especie(const string& id,string& gen, int k){
     especie esp;
     map<string,especie>::iterator it = cjt_esp.begin(); 
@@ -63,8 +71,7 @@ void cjt_especies::crea_especie(const string& id, string& gen, int k)
 
     map<string, double>::iterator it2 = distancias.begin();
 
-    while(it2 != distancias.end())
-    {
+    while(it2 != distancias.end()){
         pair<string, string> coord;
         t_esp.afegir_distancia(it2->first, id, it2->second);
         ++it2;
@@ -94,6 +101,10 @@ void cjt_especies::imprime_t_cesp() const{
 
         ++it;
     }
+}
+
+void cjt_especies::consultar_taula(taula_distancies& taula){
+    taula = t_esp.taula_dist();
 }
 
 especie cjt_especies::consultar_especie(const string& id){

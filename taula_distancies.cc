@@ -37,7 +37,6 @@ void taula_distancies::imprimir_t_dist(string id) const{
         }
         ++it;
     }
-
     cout << endl;
 }
 

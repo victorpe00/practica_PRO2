@@ -42,7 +42,7 @@ public:
         \pre <em>cjt_espscies no buit.</em>
         \post imprimeix els clusters resultamts aixi com la taula de distancies d'aquests.
     */
-    void inicialitza_clusters(const cjt_especies& esp); //Treballem sobre el parametre implicit
+    void inicialitza_clusters(cjt_especies& esp); //Treballem sobre el parametre implicit
 
     /** @brief Executa un pas del algoritme wpgma e imprimeix la taula de disancies entre els clusters resultants.
 
@@ -59,14 +59,21 @@ public:
         \pre <em>Cert.</em>
         \post Retorna cert, si el cluster amb l'id passat per referencia es troba al cjt_clusters.Retorna false altrament.
     */
-    bool existe_clsuter(const string& id_clust) const;
+    bool existe_cluster(const string& id_clust) const;
 
     /** @brief Retorna true si el parametre implicit esta buit.
      
         \pre <em>Cert.</em>
         \post Retorna cert si el parametre implicit es un conjunt buit.Fals altrament.
     */
-    bool clust_buit() const;
+    bool cjt_clust_buit();
+
+    /** @brief Retorna true si el parametre implicit nomes hi ha un cluster.
+     
+        \pre <em>Cert.</em>
+        \post Retorna cert si el parametre implicit es un conjunt buit.Fals altrament.
+    */
+    bool cjt_clust_unic();
 
 
     //ESCRIPTURA
@@ -76,7 +83,7 @@ public:
         \pre <em>Cert.</em>
         \post si al cjt_cluster hi ha un cluster amb identifiador = id, s'imprimeix . Si no hi es imprimeix un missatge d'error</em>
     */
-    void imprime_cluster(const string& id_clust) const;
+    void imprime_cluster(const string& id_clust);
 
     /** @brief Imprimeix l'arbre filogenetic pel conjunt d'especies actual.El contingut previ del conjunt de clusters s'esborra.
 

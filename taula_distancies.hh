@@ -61,6 +61,8 @@ public:
     void eliminar_cluster(string& id1,string& id2); //Elimina la distancia de la taula de distancies del cjt_cluster amb id1 i id2.
 
     void neteja();
+
+    void taula_dist();
     //ESCRIPTURA
 
     /** @brief Imprimeix la taula de distancies.
